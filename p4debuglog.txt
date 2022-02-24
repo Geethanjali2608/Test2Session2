@@ -1,1 +1,182 @@
+ gcc -g p4final.c
+ ./a.out
+enter value of n:
+0
+0
+ ./a.out
+enter value of n:
+1
+1
+ ./a.out
+enter value of n:
+2
+1
+ ./a.out
+enter value of n:
+3
+2
+ ./a.out
+enter value of n:
+4
+3
+ ./a.out
+enter value of n:
+5
+5
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x850: file p4final.c, line 34.
+(gdb) r
+Starting program: /home/runner/Test2Session2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p4final.c:34
+warning: Source file is more recent than executable.
+34    n=input();
+(gdb) s
+input () at p4final.c:3
+3   {
+(gdb) n
+5     printf("enter value of n:\n");
+(gdb) n
+enter value of n:
+6     scanf("%d",&n);
+(gdb) n
+6
+7     return n;
+(gdb) p n
+$1 = 6
+(gdb) n
+8   }
+(gdb) n
+main () at p4final.c:35
+35    fibo=find_fibo(n);
+(gdb) s
+find_fibo (n=6) at p4final.c:11
+11    int n1=0,n2=1,fibo,i;
+(gdb) n
+12    if(n==0)
+(gdb) n
+14    else if(n==1)
+(gdb) n
+18      for(i=0;i<n-1;++i)
+(gdb) n
+20        fibo=n1+n2;
+(gdb) p i
+$2 = 0
+(gdb) p n1
+$3 = 0
+(gdb) p n2
+$4 = 1
+(gdb) p fibo
+$5 = 658309888
+(gdb) n
+21        n1=n2;
+(gdb) p fibo
+$6 = 1
+(gdb) n
+22        n2=fibo;
+(gdb) p n1
+$7 = 1
+(gdb) p n2
+$8 = 1
+(gdb) n
+18      for(i=0;i<n-1;++i)
+(gdb) n
+20        fibo=n1+n2;
+(gdb) p i
+$9 = 1
+(gdb) n
+21        n1=n2;
+(gdb) n
+22        n2=fibo;
+(gdb) p fibo
+$10 = 2
+(gdb) n
+18      for(i=0;i<n-1;++i)
+(gdb) p n1
+$11 = 1
+(gdb) p n2
+$12 = 2
+(gdb) n
+20        fibo=n1+n2;
+(gdb) p i
+$13 = 2
+(gdb) n
+21        n1=n2;
+(gdb) n
+22        n2=fibo;
+(gdb) p n1
+$14 = 2
+(gdb) p n2
+$15 = 2
+(gdb) n
+18      for(i=0;i<n-1;++i)
+(gdb) p fibo
+$16 = 3
+(gdb) p i
+$17 = 2
+(gdb) n
+20        fibo=n1+n2;
+(gdb) n
+21        n1=n2;
+(gdb) p fibo
+$18 = 5
+(gdb) n
+22        n2=fibo;
+(gdb) p n1
+$19 = 3
+(gdb) n
+18      for(i=0;i<n-1;++i)
+(gdb) n
+20        fibo=n1+n2;
+(gdb) n
+21        n1=n2;
+(gdb) p fibo
+$20 = 8
+(gdb) n
+22        n2=fibo;
+(gdb) p n2
+$21 = 5
+(gdb) p n1
+$22 = 5
+(gdb) n
+18      for(i=0;i<n-1;++i)
+(gdb) p i
+$23 = 4
+(gdb) n
+24    return fibo;
+(gdb) p fibo
+$24 = 8
+(gdb) n
+26  }
+(gdb) n
+main () at p4final.c:36
+36    output(n,fibo);
+(gdb) s
+output (n=6, fibo=8) at p4final.c:29
+29    printf("%d\n",fibo);
+(gdb) n
+8
+30  }
+(gdb) n
+main () at p4final.c:37
+37    return 0;
+(gdb) n
+38  }
+(gdb) 
