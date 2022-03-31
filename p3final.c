@@ -39,4 +39,4 @@ int main()
   c=is_prime(n);
   output(n,c);
   return 0;
-}
+} 

@@ -15,7 +15,6 @@ void init_array(int n,int a[n])
 }
 void erotosthenes_sieve(int n,int a[n])
 {
-  int c;
   for(int i=1;i<n;i++)
     {
       if(a[i]%2==0 || a[i]%3==0 || a[i]%5==0 || a[i]%7==0)
@@ -26,7 +25,7 @@ void erotosthenes_sieve(int n,int a[n])
   }
   void out_put(int n,int a[n])
   {
-    int c,i;
+    int i;
     printf("2,3,5,7,");
     for(i=1;i<n;i++)
       {  
